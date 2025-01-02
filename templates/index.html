@@ -25,12 +25,16 @@
         <div id="output">
             <h3>Generated Image:</h3>
             <img id="generated-image" src="" alt="Generated Image" />
+            <a id="download-link" href="" style="display: none;" download>
+                <button>Download Image</button>
+            </a>
         </div>
     </div>
 
     <script>
         const form = document.getElementById('image-form');
         const outputImage = document.getElementById('generated-image');
+        const downloadLink = document.getElementById('download-link');
 
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
@@ -48,6 +52,10 @@
                     const blob = await response.blob();
                     const imageUrl = URL.createObjectURL(blob);
                     outputImage.src = imageUrl;  // Show the generated image
+                    
+                    // Create a download link for the image
+                    downloadLink.href = imageUrl;
+                    downloadLink.style.display = 'inline';  // Show the download button
                 } else {
                     alert('Error generating image.');
                 }
