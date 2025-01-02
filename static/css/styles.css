@@ -1,0 +1,115 @@
+/* General Styles */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+label {
+    color: #bdbdbd;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 2px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #262626;
+    color: #e0e0e0;
+    font-size: 1rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #262626;
+    color: #e0e0e0;
+    font-size: 1rem;
+    height: 60px; /* Increased height for better usability */
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #6200ee;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: #3700b3;
+}
+
+#output-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#output-container img {
+    max-width: 100%;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    color: #bdbdbd;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+
+    input[type="file"],
+    input[type="text"] {
+        font-size: 0.9rem;
+    }
+}

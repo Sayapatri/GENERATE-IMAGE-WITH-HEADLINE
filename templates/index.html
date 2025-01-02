@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Headline Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Generate Image with Headline</h1>
+        <form id="image-form" enctype="multipart/form-data">
+            <label for="image">Upload Background Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+
+            <label for="logo">Upload Logo (Transparent PNG):</label>
+            <input type="file" id="logo" name="logo" accept="image/png">
+
+            <label for="headline">Enter Headline:</label>
+            <input type="text" id="headline" name="headline" placeholder="Enter headline here" required>
+
+            <button type="submit">Generate Image</button>
+        </form>
+
+        <div id="output">
+            <h3>Generated Image:</h3>
+            <img id="generated-image" src="" alt="Generated Image" />
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('image-form');
+        const outputImage = document.getElementById('generated-image');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+
+            // Send the form data to Flask backend
+            try {
+                const response = await fetch('/generate', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const imageUrl = URL.createObjectURL(blob);
+                    outputImage.src = imageUrl;  // Show the generated image
+                } else {
+                    alert('Error generating image.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error uploading the image.');
+            }
+        });
+    </script>
+</body>
+</html>
