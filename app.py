@@ -40,7 +40,7 @@ def process_and_add_headline(input_image_path, logo_path, headline, output_path)
         image = image.convert("RGB")
 
     draw = ImageDraw.Draw(image)
-    font = ImageFont.truetype("arialbd.ttf", 40)
+    font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 40)
     max_width = image.width - 40  # Allow padding on the sides
 
     # Wrap the text into multiple lines
