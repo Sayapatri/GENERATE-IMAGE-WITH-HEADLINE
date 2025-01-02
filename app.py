@@ -2,7 +2,7 @@ from PIL import Image, ImageDraw, ImageFont
 import os
 from flask import Flask, request, send_file, render_template
 
-app = Flask(app)
+app = Flask(__name__)
 
 # Directory for generated images
 OUTPUT_DIR = "generated_images"
